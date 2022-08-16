@@ -19,7 +19,7 @@ import com.model2.mvc.service.domain.User;
 
 
 
-public class RestHttpClientApp {
+public class ProductRestHttpClientApp2 {
 	
 	// main Method
 	public static void main(String[] args) throws Exception{
@@ -62,7 +62,7 @@ public class RestHttpClientApp {
 		
 		System.out.println("\n====================================\n");
 		// 2.1 Http Post ¹æ½Ä Request : JsonSimple lib »ç¿ë
-		RestHttpClientApp.updateUserPostTest_JsonSimple();
+		ProductRestHttpClientApp2.updateUserPostTest_JsonSimple();
 		
 //		System.out.println("\n====================================\n");
 //		// 1.2 Http Post ¹æ½Ä Request : CodeHaus lib »ç¿ë
@@ -334,7 +334,7 @@ public class RestHttpClientApp {
 			
 			//[ ¹æ¹ý 3 : codehaus »ç¿ë]
 			User user01 =  new User();
-			user01.setUserId("user50");
+			user01.setUserId("user51");
 			user01.setPassword("5050");
 			user01.setUserName("È«±æµ¿");
 			ObjectMapper objectMapper01 = new ObjectMapper();
@@ -471,7 +471,7 @@ public class RestHttpClientApp {
 			
 			//[ ¹æ¹ý 2 : JSONObject »ç¿ë]
 			JSONObject json = new JSONObject();
-			json.put("password", "1992");
+			json.put("userId", "user50");
 			json.put("userName", "±èÁ¤¹Î");
 			HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
 
@@ -524,9 +524,8 @@ public class RestHttpClientApp {
 			
 			//[ ¹æ¹ý 3 : codehaus »ç¿ë]
 			User user01 =  new User();
-			user01.setUserId("bymining1992");
-			user01.setPassword("1992");
-			user01.setPassword("±èÁ¤¹Î");
+			user01.setUserId("user50");
+			user01.setUserName("±èÁ¤¹Î");
 			ObjectMapper objectMapper01 = new ObjectMapper();
 			//Object ==> JSON Value ·Î º¯È¯
 			String jsonValue = objectMapper01.writeValueAsString(user01);
