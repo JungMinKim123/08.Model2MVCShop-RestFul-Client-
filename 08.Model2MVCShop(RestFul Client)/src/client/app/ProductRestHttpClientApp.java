@@ -15,11 +15,12 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.domain.User;
 
 
 
-public class ProductRestHttpClientApp2 {
+public class ProductRestHttpClientApp {
 	
 	// main Method
 	public static void main(String[] args) throws Exception{
@@ -30,11 +31,11 @@ public class ProductRestHttpClientApp2 {
 		
 //		System.out.println("\n====================================\n");
 //		// 1.1 Http Get 방식 Request : JsonSimple lib 사용
-//		RestHttpClientApp.getUserTest_JsonSimple();
+//		ProductRestHttpClientApp.getProductTest_JsonSimple();
 		
 //		System.out.println("\n====================================\n");
 //		// 1.2 Http Get 방식 Request : CodeHaus lib 사용
-//		RestHttpClientApp.getUserTest_Codehaus();
+//		ProductRestHttpClientApp.getProductTest_Codehaus();
 		
 //		System.out.println("\n====================================\n");
 //		// 2.1 Http Post 방식 Request : JsonSimple lib 사용
@@ -60,9 +61,9 @@ public class ProductRestHttpClientApp2 {
 //		// 1.2 Http Get 방식 Request : CodeHaus lib 사용
 //		RestHttpClientApp.updateUserTest_Codehaus();
 		
-		System.out.println("\n====================================\n");
-		// 2.1 Http Post 방식 Request : JsonSimple lib 사용
-		ProductRestHttpClientApp2.updateUserPostTest_JsonSimple();
+//		System.out.println("\n====================================\n");
+//		// 2.1 Http Post 방식 Request : JsonSimple lib 사용
+//		ProductRestHttpClientApp2.updateUserPostTest_JsonSimple();
 		
 //		System.out.println("\n====================================\n");
 //		// 1.2 Http Post 방식 Request : CodeHaus lib 사용
@@ -74,12 +75,12 @@ public class ProductRestHttpClientApp2 {
 	
 //================================================================//
 	//1.1 Http Protocol GET Request : JsonSimple 3rd party lib 사용
-	public static void getUserTest_JsonSimple() throws Exception{
+	public static void getProductTest_JsonSimple() throws Exception{
 		
 		// HttpClient : Http Protocol 의 client 추상화 
 		HttpClient httpClient = new DefaultHttpClient();
 		
-		String url= 	"http://127.0.0.1:8080/user/json/getUser/admin";
+		String url= 	"http://127.0.0.1:8080/product/json/getProduct/10000";
 				
 		// HttpGet : Http Protocol 의 GET 방식 Request
 		HttpGet httpGet = new HttpGet(url);
@@ -111,12 +112,12 @@ public class ProductRestHttpClientApp2 {
 	
 	
 	//1.2 Http Protocol GET Request : JsonSimple + codehaus 3rd party lib 사용
-	public static void getUserTest_Codehaus() throws Exception{
+	public static void getProductTest_Codehaus() throws Exception{
 		
 		// HttpClient : Http Protocol 의 client 추상화 
 		HttpClient httpClient = new DefaultHttpClient();
 		
-		String url= 	"http://127.0.0.1:8080/user/json/getUser/admin";
+		String url= 	"http://127.0.0.1:8080/product/json/getProduct/10000";
 
 		// HttpGet : Http Protocol 의 GET 방식 Request
 		HttpGet httpGet = new HttpGet(url);
@@ -147,8 +148,8 @@ public class ProductRestHttpClientApp2 {
 		System.out.println(jsonobj);
 	
 		ObjectMapper objectMapper = new ObjectMapper();
-		 User user = objectMapper.readValue(jsonobj.toString(), User.class);
-		 System.out.println(user);
+		 Product product = objectMapper.readValue(jsonobj.toString(), Product.class);
+		 System.out.println(product);
 	}
 //================================================================//	
 	
